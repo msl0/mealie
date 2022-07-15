@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent 'node'
     stages {
         stage('Snyk') {
           steps {
