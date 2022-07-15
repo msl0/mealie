@@ -10,6 +10,7 @@ pipeline {
             }
             steps {
               script {
+                node = tool 'node.js';
                 scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv('sonar') {
                   sh 'sonar-scanner'
