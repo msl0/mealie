@@ -1,5 +1,7 @@
 pipeline {
-    agent 'node'
+    agent {
+        label 'node01'
+    }
     stages {
         stage('Snyk') {
           steps {
