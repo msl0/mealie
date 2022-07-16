@@ -7,7 +7,8 @@ pipeline {
           steps {
             snykSecurity(
               snykInstallation: 'snyk',
-              snykTokenId: 'snyktest'
+              snykTokenId: 'snyktest',
+              additionalArguments: '--all-projects'
             )
           }
         }
