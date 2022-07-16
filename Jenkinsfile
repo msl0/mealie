@@ -1,4 +1,5 @@
 pipeline {
+    agent none
     stages {
         stage('Snyk') {
             agent {
@@ -14,19 +15,19 @@ pipeline {
             )
           }
         }
-        stage('Snyk2') {
-                    agent {
-                        docker {
-                            label 'node01'
-                            image 'snyk/snyk:node-16'
-                        }
+    stage('Snyk2') {
+                agent {
+                    docker {
+                        label 'node01'
+                        image 'snyk/snyk:node-16'
                     }
-                  steps {
-                    snykSecurity(
-                      snykInstallation: 'snyk',
-                      snykTokenId: 'snyktest'
-                    )
-                  }
                 }
+              steps {
+                snykSecurity(
+                  snykInstallation: 'snyk',
+                  snykTokenId: 'snyktest'
+                )
+              }
+            }
     }
 }
