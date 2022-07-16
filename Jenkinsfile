@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'snyk/snyk:python-3.10'
+            image 'python:3.10-slim'
             label 'node01'
         }
     }
