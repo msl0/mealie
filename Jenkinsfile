@@ -11,8 +11,6 @@ pipeline {
                     image 'snyk/snyk:python-3.10'
                 }
             }
-          steps {
-          }
         }
     stage('Snyk2') {
                 agent {
