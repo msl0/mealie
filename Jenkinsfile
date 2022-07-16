@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    environment { 
+        SNYK_TOKEN = credentials('snyktest') 
+    }
     stages {
         stage('Snyk') {
             agent {
@@ -9,10 +12,6 @@ pipeline {
                 }
             }
           steps {
-            snykSecurity(
-              snykInstallation: 'snyk',
-              snykTokenId: 'snyktest'
-            )
           }
         }
     stage('Snyk2') {
