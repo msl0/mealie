@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        label 'node01'
+        docker {
+            label 'node01'
+            image 'python:latest'
+        }
     }
     stages {
         stage('Snyk') {
