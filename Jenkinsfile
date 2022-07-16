@@ -12,7 +12,7 @@ pipeline {
         stage('Snyk') {
           steps {
             snykSecurity(
-              snykInstallation: 'snyk'
+              snykInstallation: 'snyk',
               snykTokenId: 'snyk'
             )
           }
