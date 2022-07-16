@@ -5,12 +5,10 @@ pipeline {
             label 'node01'
         }
     }
-    tools {
-      snyk 'snyk'
-    }
     stages {
         stage('Snyk') {
           steps {
+            snyk -v 
             echo 'Testing...'
             snykSecurity(
               snykInstallation: 'snyk',
