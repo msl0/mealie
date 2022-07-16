@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Snyk') {
           steps {
-            snyk -v 
+            sh 'snyk -v' 
             echo 'Testing...'
             snykSecurity(
               snykInstallation: 'snyk',
