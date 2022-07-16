@@ -5,6 +5,9 @@ pipeline {
             label 'node01'
         }
     }
+    tools {
+      snyk 'snyk'
+    }
     stages {
         stage('Snyk') {
           steps {
