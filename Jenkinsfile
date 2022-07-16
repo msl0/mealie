@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        label 'node01'
+        docker {
+            image 'python:3.9-alpine'
+            label 'node01'
+        }
     }
     tools {
       snyk 'snyk'
