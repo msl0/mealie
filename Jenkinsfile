@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             label 'node01'
-            image 'python:latest'
+            image 'snyk/snyk'
         }
     }
     stages {
