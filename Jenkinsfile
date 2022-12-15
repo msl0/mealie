@@ -13,6 +13,7 @@ pipeline {
               script {
                 scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv('sonar') {
+                  sh 'npm i postcss-sass --save'
                   sh 'node --version' 
                   sh 'sonar-scanner'
                 }
