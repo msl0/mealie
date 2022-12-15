@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    tools {
+        nodejs 'nodejs'
+    }
     stages {
         stage('SonarQube Analysis') {
             agent {
@@ -10,7 +13,6 @@ pipeline {
             }
             steps {
               script {
-                node = tool 'nodejs';
                 scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv('sonar') {
                   sh 'node --version' 
