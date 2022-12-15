@@ -4,6 +4,9 @@ pipeline {
     }
     stages {
         stage('SonarQube Analysis') {
+            tools {
+              nodejs 'nodejs'
+            }
             steps {
               script {
                 scannerHome = tool 'SonarScanner';
