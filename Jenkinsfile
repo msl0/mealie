@@ -1,8 +1,5 @@
 pipeline {
     agent none
-    tools {
- 
-    }
     stages {
         stage('SonarQube Analysis') {
             agent { label 'node01' }
