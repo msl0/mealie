@@ -4,12 +4,9 @@ pipeline {
         stage('SonarQube Analysis') {
             agent {
                 docker {
-                    image 'sonarsource/sonar-scanner-cli:4.6'
+                    image 'sonarsource/sonar-scanner-cli'
                     label 'node01'
                 }
-            }
-            tools {
-                nodejs 'nodejs'
             }
             steps {
               sh 'node --version'
