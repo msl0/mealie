@@ -8,6 +8,9 @@ pipeline {
                     label 'node01'
                 }
             }
+            tools {
+                nodejs 'nodejs'
+            }
             steps {
               sh 'node --version'
               script {
