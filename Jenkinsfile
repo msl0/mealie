@@ -6,6 +6,9 @@ pipeline {
         DB_ENGINE = 'postgres'
         POSTGRES_SERVER = 'localhost'
     }
+    parameters {
+      booleanParam defaultValue: false, description: 'Do you want to run Sonarqube test?', name: 'enableSonarqubeScan'
+    }
     tools {
       nodejs 'nodejs'
     }
@@ -54,9 +57,6 @@ pipeline {
         stage('SonarQube Analysis') {
             tools {
               nodejs 'nodejs'
-            }
-            parameters {
-              booleanParam defaultValue: false, description: 'Do you want to run Sonarqube test?', name: 'enableSonarqubeScan'
             }
             when { expression { params.enableSonarqubeScan == true } }
             steps {
