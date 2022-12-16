@@ -39,6 +39,12 @@ pipeline {
                     export PATH=/var/lib/jenkins/.local/bin:$PATH
                     make backend-test
                 '''
+                snykSecurity(
+                  snykInstallation: 'snyk',
+                  snykTokenId: 'snyk',
+                  // place other optional parameters here, for example:
+                  additionalArguments: '--all-projects'
+                )
             }
             post {
               always {
