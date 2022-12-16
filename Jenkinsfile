@@ -37,6 +37,7 @@ pipeline {
                     yarn test
                     cd ..
                     export PATH=/var/lib/jenkins/.local/bin:$PATH
+                    make backend-coverage
                     make backend-test
                 '''
             }
