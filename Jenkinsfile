@@ -40,11 +40,11 @@ pipeline {
                     make backend-test
                 '''
             }
-        }
-        post {
-          always {
-            junit 'test-report.xml'
-          }
+            post {
+              always {
+                junit 'test-report.xml'
+              }
+            }
         }
         stage('SonarQube Analysis') {
             tools {
