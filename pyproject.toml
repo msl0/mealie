@@ -87,7 +87,7 @@ multi_line_output = 3
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q --cov=mealie"
+addopts = "-ra -q --cov=mealie --junitxml=test-report.xml"
 python_files = 'test_*'
 python_classes = '*Tests'
 python_functions = 'test_*'
