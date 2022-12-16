@@ -55,6 +55,7 @@ pipeline {
             tools {
               nodejs 'nodejs'
             }
+            when
             steps {
               script {
                 scannerHome = tool 'SonarScanner';
@@ -84,6 +85,11 @@ pipeline {
         stage('Run DEV') {
             steps {
               make docker-dev
+            }
+            post { 
+                always { 
+                    input 'Is the application working properly?'
+                }
             }
         }
         stage('Run PROD') {
