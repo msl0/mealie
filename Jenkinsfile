@@ -34,8 +34,7 @@ pipeline {
             steps {
                 sh '''
                     cd frontend
-                    yarn test:ci
-                    yarn build
+                    yarn test
                     cd ..
                     make backend-test
                 '''
