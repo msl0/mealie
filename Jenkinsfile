@@ -65,6 +65,32 @@ pipeline {
               }
             }
         }
+        stage('Build Docker') {
+            environment {
+                user = "msl0"
+                registryCredentialsId = "dockerhub"
+            }
+            steps {
+              script {
+                dockerImageFrontend = docker.build(user +"/mealieFront" + ":$BUILD_NUMBER", '-f frontend/Dockerfile')
+                dockerImageBackend = docker.build(user +"/mealieBackend" + ":$BUILD_NUMBER", '--target production')
+                docker.withRegistry('', registryCredentialsId) {
+                    dockerImageFrontend.push()
+                    dockerImageBackend.push()
+                }
+              }
+            }
+        }
+        stage('Run DEV') {
+            steps {
+              make docker-dev
+            }
+        }
+        stage('Run PROD') {
+            steps {
+              make docker-prod
+            }
+        }
     }
     post { 
         always { 
