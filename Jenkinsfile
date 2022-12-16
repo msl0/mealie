@@ -23,7 +23,6 @@ pipeline {
                     pip install psycopg2-binary
                     poetry env use python3.10
                     poetry install
-                    poetry add \"psycopg2-binary==2.8.6\"
                     npm i --global yarn
                     cd frontend
                     yarn
