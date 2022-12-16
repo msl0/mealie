@@ -17,7 +17,7 @@ pipeline {
                 }
                 sh '''
                     sudo apt update
-                    sudo apt install python3 make install libsasl2-dev libldap2-dev libssl-dev tesseract-ocr-all -y
+                    sudo apt install python3 make libsasl2-dev libldap2-dev libssl-dev tesseract-ocr-all -y
                     curl -sSL https://install.python-poetry.org | python3 -
                     poetry install
                     poetry add "psycopg2-binary==2.8.6"
