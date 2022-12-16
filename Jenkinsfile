@@ -21,7 +21,7 @@ pipeline {
                     curl -sSL https://install.python-poetry.org | python3 -
                     export PATH="/var/lib/jenkins/.local/bin:$PATH
                     poetry install
-                    poetry add "psycopg2-binary==2.8.6"
+                    poetry add \"psycopg2-binary==2.8.6\"
                     npm i --global yarn
                     cd frontend
                     yarn
