@@ -55,7 +55,10 @@ pipeline {
             tools {
               nodejs 'nodejs'
             }
-            when
+            parameters {
+              booleanParam defaultValue: false, description: 'Do you want to run Sonarqube test?', name: 'enableSonarqubeScan'
+            }
+            when { expression { params.enableSonarqubeScan == true } }
             steps {
               script {
                 scannerHome = tool 'SonarScanner';
