@@ -41,6 +41,11 @@ pipeline {
                 '''
             }
         }
+        post {
+          always {
+            junit 'test-report.xml'
+          }
+        }
         stage('SonarQube Analysis') {
             tools {
               nodejs 'nodejs'
