@@ -8,6 +8,7 @@ pipeline {
     }
     parameters {
       booleanParam defaultValue: false, description: 'Do you want to run Sonarqube test?', name: 'enableSonarqubeScan'
+      booleanParam defaultValue: false, description: 'Do you want to publish Docker image?', name: 'enableDockerPublish'
     }
     tools {
       nodejs 'nodejs'
@@ -71,6 +72,7 @@ pipeline {
             }
         }
         stage('Build Docker') {
+            when { expression { params.enableDockerPublish == true } }
             environment {
                 user = "msl0"
                 registryCredentialsId = "dockerhub"
