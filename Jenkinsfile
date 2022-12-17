@@ -75,8 +75,8 @@ pipeline {
             }
             steps {
               script {
-                dockerImageFrontend = docker.build(user +"/mealieFront" + ":$BUILD_NUMBER", '-f frontend/Dockerfile')
-                dockerImageBackend = docker.build(user +"/mealieBackend" + ":$BUILD_NUMBER", '--target production')
+                dockerImageFrontend = docker.build(user +"/mealie-front" + ":$BUILD_NUMBER", '-f frontend/Dockerfile')
+                dockerImageBackend = docker.build(user +"/mealie-backend" + ":$BUILD_NUMBER", '--target production')
                 docker.withRegistry('', registryCredentialsId) {
                     dockerImageFrontend.push()
                     dockerImageBackend.push()
