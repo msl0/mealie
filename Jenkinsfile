@@ -34,6 +34,8 @@ pipeline {
         stage('Tests') {
             steps {
                 sh '''
+                    rm -f *-report.xml
+                    make clean-test
                     cd frontend
                     yarn test
                     cd ..
