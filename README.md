@@ -5,7 +5,7 @@
 [![MIT License][license-shield]][license-url]
 [![Docker Pulls][docker-pull]][docker-pull]
 [![CodeFactor](https://www.codefactor.io/repository/github/hay-kot/mealie/badge)](https://www.codefactor.io/repository/github/hay-kot/mealie)
-
+ 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
