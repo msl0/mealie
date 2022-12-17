@@ -97,6 +97,9 @@ pipeline {
             }
         }
         stage('Run PROD') {
+            when {
+              branch 'main'
+            }
             steps {
               make docker-prod
             }
