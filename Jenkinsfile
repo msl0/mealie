@@ -23,7 +23,6 @@ pipeline {
                     sudo apt install python3 make libsasl2-dev libldap2-dev libssl-dev tesseract-ocr-all -y
                     curl -sSL https://install.python-poetry.org | python3 -
                     export PATH=/var/lib/jenkins/.local/bin:$PATH
-                    pip install psycopg2-binary
                     poetry env use python3.10
                     poetry install
                     npm i --global yarn
