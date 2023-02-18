@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'node01'
+        label 'node'
     }
     environment { 
         DB_ENGINE = 'postgres'
