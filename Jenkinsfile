@@ -5,7 +5,7 @@ pipeline {
             agent {
                 docker {
                     image 'sonarsource/sonar-scanner-cli'
-                    label 'node01'
+                    label 'node'
                 }
             }
             steps {
