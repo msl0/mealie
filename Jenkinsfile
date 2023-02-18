@@ -64,7 +64,7 @@ pipeline {
             steps {
               script {
                 scannerHome = tool 'SonarScanner';
-                withSonarQubeEnv('sonar') {
+                withSonarQubeEnv('sonarqube') {
                   sh 'npm i postcss-sass --save'
                   sh "${scannerHome}/bin/sonar-scanner"
                 }
