@@ -12,7 +12,7 @@ pipeline {
               sh 'node --version'
               script {
                 scannerHome = tool 'SonarScanner';
-                withSonarQubeEnv('sonarqube') {
+                withSonarQubeEnv('sonar') {
                   sh 'node --version' 
                   sh 'sonar-scanner'
                 }
