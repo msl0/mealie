@@ -20,6 +20,7 @@ pipeline {
                     container = docker.image('postgres').run('-e POSTGRES_USER=mealie -e POSTGRES_PASSWORD=mealie -e POSTGRES_DB=mealie --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5 -p 5432:5432')
                 }
                 sh '''
+                    whoami
                     apt update
                     apt install python3 make libsasl2-dev libldap2-dev libssl-dev tesseract-ocr-all -y
                     curl -sSL https://install.python-poetry.org | python3 -
