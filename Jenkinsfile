@@ -17,7 +17,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    container = docker.image('postgres').run('-u root:sudo -e POSTGRES_USER=mealie -e POSTGRES_PASSWORD=mealie -e POSTGRES_DB=mealie --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5 -p 5432:5432')
+                    container = docker.image('postgres').run('-u 0 -e POSTGRES_USER=mealie -e POSTGRES_PASSWORD=mealie -e POSTGRES_DB=mealie --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5 -p 5432:5432')
                 }
                 sh '''
                     whoami
