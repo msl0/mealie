@@ -6,7 +6,7 @@ pipeline {
                 docker {
                     image 'sonarsource/sonar-scanner-cli'
                     label 'node'
-                    args '-v $HOME/.sonar:/opt/sonar-scanner/.sonar'
+                    args '-v ${PWD}/.sonar:/opt/sonar-scanner/.sonar'
                 }
             }
             steps {
