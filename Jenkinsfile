@@ -10,6 +10,7 @@ pipeline {
                 }
             }
             steps {
+              sh 'mkdir -p /tmp/.sonar && chmod -R 777 /tmp/.sonar'
               sh 'node --version'
               script {
                 scannerHome = tool 'SonarScanner';
