@@ -1,6 +1,14 @@
 pipeline {
     agent none
     stages {
+        stage('Prepare Environment') {
+            agent { label 'node' }
+            steps {
+                // Clean up and create the .sonar directory in the workspace
+                sh 'rm -rf ${WORKSPACE}/.sonar'
+                sh 'mkdir -p ${WORKSPACE}/.sonar'
+            }
+        }
         stage('SonarQube Analysis') {
             agent {
                 docker {
