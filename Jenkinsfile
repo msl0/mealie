@@ -10,6 +10,7 @@ pipeline {
                 }
             }
             steps {
+              sh 'mkdir -p ${WORKSPACE}/.sonar && chmod -R 777 ${WORKSPACE}/.sonar'
               script {
                 scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv('sonarqube') {
