@@ -1,6 +1,12 @@
 pipeline {
     agent none
     stages {
+        stage('Prepare Environment') {
+            agent { label 'node' }
+            steps {
+                sh 'mkdir -p /tmp/.sonar && chmod -R 777 /tmp/.sonar'
+            }
+        }
         stage('SonarQube Analysis') {
             agent {
                 docker {
@@ -10,12 +16,9 @@ pipeline {
                 }
             }
             steps {
-              sh 'mkdir -p /tmp/.sonar && chmod -R 777 /tmp/.sonar'
-              sh 'node --version'
               script {
                 scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv('sonarqube') {
-                  sh 'node --version' 
                   sh 'sonar-scanner'
                 }
               }
